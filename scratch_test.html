@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.lx-card { display: flex; flex-direction: column; width: 300px; height: 500px; border: 1px solid black; }
+.lx-card > .lx-page-actions { margin-top: auto !important; }
+.lx-card > .lx-chip-row { margin-top: auto !important; padding-top: 0; background: yellow; }
+.lx-card > .lx-chip-row ~ .lx-price { margin-top: 16px !important; background: pink; }
+.lx-card > .lx-chip-row ~ .lx-page-actions { margin-top: 16px !important; background: lightblue; }
+</style>
+</head>
+<body>
+  <div class="lx-card">
+    <p>Short text</p>
+    <div class="lx-chip-row">Chips</div>
+    <div class="lx-price">Price</div>
+    <div class="lx-page-actions">Button</div>
+  </div>
+</body>
+</html>

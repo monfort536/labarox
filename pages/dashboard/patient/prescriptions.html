@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescriptions - LaboraX Patient Dashboard</title>
+  <meta name="description" content="Prescriptions dashboard page for LaboraX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/laborax-template.css">
+  
+
+  <link rel="icon" type="image/x-icon" href="../../../assets/images/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/images/logo/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/logo/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../../../assets/images/logo/apple-touch-icon.png">
+</head><body class="lx-shell"><main class="lx-dashboard"><aside class="lx-sidebar"><a class="lx-logo" href="../../../index.html">Labora<span>X</span></a><a class="" href="index.html"><i class="bi bi-grid"></i>Overview</a><a class="" href="bookings.html"><i class="bi bi-calendar"></i>Bookings</a><a class="" href="reports.html"><i class="bi bi-file-medical"></i>Reports</a><a class="active" href="prescriptions.html"><i class="bi bi-cloud-upload"></i>Prescriptions</a><a class="" href="family.html"><i class="bi bi-people"></i>Family</a><a class="" href="settings.html"><i class="bi bi-gear"></i>Settings</a><a href="../../../index.html"><i class="bi bi-box-arrow-left"></i>Exit</a></aside><section class="lx-dash-content"><div class="lx-dash-head">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <button id="sidebar-toggle" style="background:transparent; border:none; color:rgb(var(--text-primary)); font-size:28px; cursor:pointer; padding:0; display:flex; align-items:center; justify-content:center; transition:color 0.2s;"><i class="bi bi-list"></i></button>
+            <div><span class="lx-eyebrow">Patient Dashboard</span><h1 class="lx-heading">Prescriptions</h1></div></div><div class="lx-dash-tools" style="gap: 16px;">
+            <div style="display:flex; gap:8px;">
+              <button class="lx-icon" data-theme-toggle type="button" aria-label="Switch to dark mode"><i class="bi bi-moon-stars"></i></button>
+              <button class="lx-direction" data-rtl-toggle type="button" aria-label="Switch text direction">RTL</button>
+            </div>
+            <a href="profile.html" title="Profile" style="display:flex; align-items:center; justify-content:center; width: 42px; height: 42px; border-radius: 50%; background: rgb(var(--primary-red)); color: #fff; text-decoration: none; font-weight: 800; font-size: 15px; margin-left: 8px; box-shadow: 0 4px 12px rgba(214, 40, 40, 0.2); border: 2px solid rgb(var(--surface));">SJ</a>
+          </div></div>
+  <div class="lx-grid" style="--cols:1; gap: 32px;">
+    <!-- Upload Section -->
+    <section class="lx-card reveal stagger-up">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <h2 style="margin:0;">Upload Prescription</h2>
+      </div>
+      <div class="lx-upload-area" onclick="document.getElementById('prescriptionInput').click()" style="border: 2px dashed rgb(var(--border-primary)); border-radius: 12px; padding: 48px 24px; text-align: center; background: rgba(var(--primary-red), 0.03); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(var(--primary-red), 0.08)'; this.style.borderColor='rgb(var(--primary-red))';" onmouseout="this.style.background='rgba(var(--primary-red), 0.03)'; this.style.borderColor='rgb(var(--border-primary))';">
+        <i class="bi bi-cloud-arrow-up" style="font-size: 48px; color: rgb(var(--primary-red)); margin-bottom: 16px; display: block;"></i>
+        <h3 style="margin-bottom: 8px;">Drag & Drop your prescription here</h3>
+        <p style="color: rgb(var(--text-muted)); margin-bottom: 24px;">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
+        <button class="lx-btn secondary" style="pointer-events: none; margin: 0 auto;">Browse Files</button>
+      </div>
+      <p style="margin-top: 16px; font-size: 14px; color: rgb(var(--text-muted));"><i class="bi bi-info-circle"></i> Once uploaded, our medical team will review your prescription and automatically add the required tests to your cart for booking.</p>
+    
+<!-- File Input -->
+<input type="file" id="prescriptionInput" style="display:none" accept=".pdf,.jpg,.jpeg,.png" onchange="if(this.files.length > 0) { document.getElementById('uploadSuccessModal').style.display='flex'; }">
+
+<!-- Upload Success Modal -->
+<div id="uploadSuccessModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:400px; text-align:center; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);">
+    <div style="width:64px; height:64px; border-radius:50%; background:rgba(var(--success-green, 34,197,94), 0.1); color:rgb(var(--success-green, 34,197,94)); font-size:32px; display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;">
+      <i class="bi bi-check-lg"></i>
+    </div>
+    <h3 style="margin-top:0; margin-bottom:10px; font-size:20px;">Upload Successful!</h3>
+    <p style="color:var(--muted); margin-bottom:24px; font-size:14px;">Your prescription has been securely uploaded. Our medical team will review it shortly and automatically add the required tests to your cart.</p>
+    <button type="button" class="lx-btn primary" onclick="document.getElementById('uploadSuccessModal').style.display='none'; document.getElementById('prescriptionInput').value='';" style="width:100%; justify-content:center;">Got it</button>
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div id="previewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:700px; max-height:90vh; display:flex; flex-direction:column; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); padding:0;">
+    <div style="padding:15px 20px; border-bottom:1px solid var(--border-color, #e2e8f0); display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:16px; display:flex; align-items:center; gap:8px;"><i class="bi bi-file-earmark-medical text-primary"></i> Prescription Preview</h3>
+      <button type="button" class="lx-icon" onclick="document.getElementById('previewModal').style.display='none'" style="background:transparent; border:none; color:var(--muted);"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div style="padding:40px 20px; text-align:center; background:var(--bg-body, #f8fafc); flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:400px;">
+      <i class="bi bi-image" style="font-size:64px; color:var(--muted); margin-bottom:16px; opacity:0.5;"></i>
+      <p style="color:var(--muted); font-size:14px; max-width:300px; margin:0 auto;">Document preview is currently in secure-mode. Please download the file to view the full details.</p>
+      <button class="lx-btn secondary" style="margin-top:20px;" onclick="document.getElementById('previewModal').style.display='none'"><i class="bi bi-download" style="margin-right:8px;"></i> Download Original</button>
+    </div>
+  </div>
+</div>
+</section>
+
+    <!-- Upload History -->
+    <section class="lx-card reveal stagger-up" style="transition-delay: 0.1s;">
+      <h2 style="margin-top:0; margin-bottom: 24px;">Prescription History</h2>
+      <div class="lx-table-wrap">
+        <table class="lx-table">
+          <thead>
+            <tr>
+              <th>Date Uploaded</th>
+              <th>File Name</th>
+              <th>Patient</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oct 24, 2026</td>
+              <td><strong>dr_smith_bloodwork.pdf</strong></td>
+              <td>John Doe</td>
+              <td><span class="lx-badge" style="background: rgba(var(--primary-red), 0.1); color: rgb(var(--primary-red)); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Processing</span></td>
+              <td><a href="#" onclick="event.preventDefault(); document.getElementById('previewModal').style.display='flex'" style="color: rgb(var(--primary-red)); font-weight: 500; text-decoration: none;">View</a></td>
+            </tr>
+            <tr>
+              <td>Sep 15, 2026</td>
+              <td><strong>prescription_0915.jpg</strong></td>
+              <td>Sarah Doe (Family)</td>
+              <td><span class="lx-badge" style="background: rgba(34, 197, 94, 0.1); color: rgb(34, 197, 94); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Tests Booked</span></td>
+              <td><a href="#" onclick="event.preventDefault(); document.getElementById('previewModal').style.display='flex'" style="color: rgb(var(--primary-red)); font-weight: 500; text-decoration: none;">View</a></td>
+            </tr>
+            <tr>
+              <td>Aug 02, 2026</td>
+              <td><strong>scan_request.pdf</strong></td>
+              <td>John Doe</td>
+              <td><span class="lx-badge" style="background: rgba(34, 197, 94, 0.1); color: rgb(34, 197, 94); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Tests Booked</span></td>
+              <td><a href="#" onclick="event.preventDefault(); document.getElementById('previewModal').style.display='flex'" style="color: rgb(var(--primary-red)); font-weight: 500; text-decoration: none;">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+<!-- File Input -->
+<input type="file" id="prescriptionInput" style="display:none" accept=".pdf,.jpg,.jpeg,.png" onchange="if(this.files.length > 0) { document.getElementById('uploadSuccessModal').style.display='flex'; }">
+
+<!-- Upload Success Modal -->
+<div id="uploadSuccessModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:400px; text-align:center; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);">
+    <div style="width:64px; height:64px; border-radius:50%; background:rgba(var(--success-green, 34,197,94), 0.1); color:rgb(var(--success-green, 34,197,94)); font-size:32px; display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;">
+      <i class="bi bi-check-lg"></i>
+    </div>
+    <h3 style="margin-top:0; margin-bottom:10px; font-size:20px;">Upload Successful!</h3>
+    <p style="color:var(--muted); margin-bottom:24px; font-size:14px;">Your prescription has been securely uploaded. Our medical team will review it shortly and automatically add the required tests to your cart.</p>
+    <button type="button" class="lx-btn primary" onclick="document.getElementById('uploadSuccessModal').style.display='none'; document.getElementById('prescriptionInput').value='';" style="width:100%; justify-content:center;">Got it</button>
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div id="previewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:700px; max-height:90vh; display:flex; flex-direction:column; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); padding:0;">
+    <div style="padding:15px 20px; border-bottom:1px solid var(--border-color, #e2e8f0); display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:16px; display:flex; align-items:center; gap:8px;"><i class="bi bi-file-earmark-medical text-primary"></i> Prescription Preview</h3>
+      <button type="button" class="lx-icon" onclick="document.getElementById('previewModal').style.display='none'" style="background:transparent; border:none; color:var(--muted);"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div style="padding:40px 20px; text-align:center; background:var(--bg-body, #f8fafc); flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:400px;">
+      <i class="bi bi-image" style="font-size:64px; color:var(--muted); margin-bottom:16px; opacity:0.5;"></i>
+      <p style="color:var(--muted); font-size:14px; max-width:300px; margin:0 auto;">Document preview is currently in secure-mode. Please download the file to view the full details.</p>
+      <button class="lx-btn secondary" style="margin-top:20px;" onclick="document.getElementById('previewModal').style.display='none'"><i class="bi bi-download" style="margin-right:8px;"></i> Download Original</button>
+    </div>
+  </div>
+</div>
+</section>
+  </div>
+
+<!-- File Input -->
+<input type="file" id="prescriptionInput" style="display:none" accept=".pdf,.jpg,.jpeg,.png" onchange="if(this.files.length > 0) { document.getElementById('uploadSuccessModal').style.display='flex'; }">
+
+<!-- Upload Success Modal -->
+<div id="uploadSuccessModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:400px; text-align:center; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);">
+    <div style="width:64px; height:64px; border-radius:50%; background:rgba(var(--success-green, 34,197,94), 0.1); color:rgb(var(--success-green, 34,197,94)); font-size:32px; display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;">
+      <i class="bi bi-check-lg"></i>
+    </div>
+    <h3 style="margin-top:0; margin-bottom:10px; font-size:20px;">Upload Successful!</h3>
+    <p style="color:var(--muted); margin-bottom:24px; font-size:14px;">Your prescription has been securely uploaded. Our medical team will review it shortly and automatically add the required tests to your cart.</p>
+    <button type="button" class="lx-btn primary" onclick="document.getElementById('uploadSuccessModal').style.display='none'; document.getElementById('prescriptionInput').value='';" style="width:100%; justify-content:center;">Got it</button>
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div id="previewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:700px; max-height:90vh; display:flex; flex-direction:column; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); padding:0;">
+    <div style="padding:15px 20px; border-bottom:1px solid var(--border-color, #e2e8f0); display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:16px; display:flex; align-items:center; gap:8px;"><i class="bi bi-file-earmark-medical text-primary"></i> Prescription Preview</h3>
+      <button type="button" class="lx-icon" onclick="document.getElementById('previewModal').style.display='none'" style="background:transparent; border:none; color:var(--muted);"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div style="padding:40px 20px; text-align:center; background:var(--bg-body, #f8fafc); flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:400px;">
+      <i class="bi bi-image" style="font-size:64px; color:var(--muted); margin-bottom:16px; opacity:0.5;"></i>
+      <p style="color:var(--muted); font-size:14px; max-width:300px; margin:0 auto;">Document preview is currently in secure-mode. Please download the file to view the full details.</p>
+      <button class="lx-btn secondary" style="margin-top:20px;" onclick="document.getElementById('previewModal').style.display='none'"><i class="bi bi-download" style="margin-right:8px;"></i> Download Original</button>
+    </div>
+  </div>
+</div>
+</section></main>
+<script src="../../../assets/js/auth.js"></script>
+<script src="../../../assets/js/theme.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script src="../../../assets/js/navigation.js"></script>
+<script src="../../../assets/js/laborax-template.js"></script></body></html>

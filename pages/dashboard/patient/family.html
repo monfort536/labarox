@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family - LaboraX Patient Dashboard</title>
+  <meta name="description" content="Family dashboard page for LaboraX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/laborax-template.css">
+  
+
+  <link rel="icon" type="image/x-icon" href="../../../assets/images/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/images/logo/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/logo/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../../../assets/images/logo/apple-touch-icon.png">
+</head><body class="lx-shell"><main class="lx-dashboard"><aside class="lx-sidebar"><a class="lx-logo" href="../../../index.html">Labora<span>X</span></a><a class="" href="index.html"><i class="bi bi-grid"></i>Overview</a><a class="" href="bookings.html"><i class="bi bi-calendar"></i>Bookings</a><a class="" href="reports.html"><i class="bi bi-file-medical"></i>Reports</a><a class="" href="prescriptions.html"><i class="bi bi-cloud-upload"></i>Prescriptions</a><a class="active" href="family.html"><i class="bi bi-people"></i>Family</a><a class="" href="settings.html"><i class="bi bi-gear"></i>Settings</a><a href="../../../index.html"><i class="bi bi-box-arrow-left"></i>Exit</a></aside><section class="lx-dash-content"><div class="lx-dash-head">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <button id="sidebar-toggle" style="background:transparent; border:none; color:rgb(var(--text-primary)); font-size:28px; cursor:pointer; padding:0; display:flex; align-items:center; justify-content:center; transition:color 0.2s;"><i class="bi bi-list"></i></button>
+            <div><span class="lx-eyebrow">Patient Dashboard</span><h1 class="lx-heading">Family</h1></div></div><div class="lx-dash-tools" style="gap: 16px;">
+            <div style="display:flex; gap:8px;">
+              <button class="lx-icon" data-theme-toggle type="button" aria-label="Switch to dark mode"><i class="bi bi-moon-stars"></i></button>
+              <button class="lx-direction" data-rtl-toggle type="button" aria-label="Switch text direction">RTL</button>
+            </div>
+            <a href="profile.html" title="Profile" style="display:flex; align-items:center; justify-content:center; width: 42px; height: 42px; border-radius: 50%; background: rgb(var(--primary-red)); color: #fff; text-decoration: none; font-weight: 800; font-size: 15px; margin-left: 8px; box-shadow: 0 4px 12px rgba(214, 40, 40, 0.2); border: 2px solid rgb(var(--surface));">SJ</a>
+          </div></div><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+        <p style="color:var(--muted); font-size:15px; margin:0; max-width:600px;">Manage profiles for your family members to easily book tests and view reports on their behalf.</p>
+        <button class="lx-btn primary" onclick="document.getElementById('addMemberModal').style.display='flex'"><i class="bi bi-person-add" style="margin-right:8px;"></i> Add New Member</button>
+      </div>
+
+      <div class="lx-grid lx-three">
+        <!-- Self -->
+        <div class="lx-card reveal" style="border-top: 4px solid rgb(var(--primary-blue));">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:15px;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <div style="width:48px; height:48px; border-radius:50%; background:rgba(var(--primary-blue), 0.1); color:rgb(var(--primary-blue)); font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;" id="selfInitials">JD</div>
+              <div>
+                <h3 style="margin:0; font-size:18px;" id="selfName">John Doe</h3>
+                <span style="font-size:13px; font-weight:600; color:rgb(var(--primary-blue));">Self</span>
+              </div>
+            </div>
+            <button class="lx-icon" aria-label="Edit Profile" onclick="window.location.href='profile.html'"><i class="bi bi-pencil"></i></button>
+          </div>
+          <div style="font-size:14px; color:var(--muted); margin-bottom:20px; display:flex; flex-direction:column; gap:8px;">
+            <span style="display:flex; align-items:center;"><i class="bi bi-gender-male" style="margin-right:10px; font-size:16px;"></i> Male, 34 Years</span>
+            <span style="display:flex; align-items:center;"><i class="bi bi-droplet" style="margin-right:10px; font-size:16px;"></i> O+ Blood Group</span>
+          </div>
+          <div style="display:flex; gap:10px; border-top:1px solid var(--border-color, #e2e8f0); padding-top:15px;">
+            <a href="bookings.html" class="lx-btn secondary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Bookings</a>
+            <a href="reports.html" class="lx-btn secondary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Reports</a>
+          </div>
+        </div>
+
+        <!-- Spouse -->
+        <div class="lx-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:15px;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <div style="width:48px; height:48px; border-radius:50%; background:rgba(var(--primary-red), 0.1); color:rgb(var(--primary-red)); font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">SD</div>
+              <div>
+                <h3 style="margin:0; font-size:18px;">Sarah Doe</h3>
+                <span style="font-size:13px; font-weight:600; color:var(--muted);">Spouse</span>
+              </div>
+            </div>
+            <button class="lx-icon" aria-label="Options" style="color:var(--danger-color, #ef4444);"><i class="bi bi-trash"></i></button>
+          </div>
+          <div style="font-size:14px; color:var(--muted); margin-bottom:20px; display:flex; flex-direction:column; gap:8px;">
+            <span style="display:flex; align-items:center;"><i class="bi bi-gender-female" style="margin-right:10px; font-size:16px;"></i> Female, 32 Years</span>
+            <span style="display:flex; align-items:center;"><i class="bi bi-droplet" style="margin-right:10px; font-size:16px;"></i> A- Blood Group</span>
+          </div>
+          <div style="display:flex; gap:10px; border-top:1px solid var(--border-color, #e2e8f0); padding-top:15px;">
+            <a href="../../../pages/home1/tests.html" class="lx-btn primary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Book Test</a>
+            <a href="reports.html" class="lx-btn secondary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Reports</a>
+          </div>
+        </div>
+
+        <!-- Child -->
+        <div class="lx-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:15px;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <div style="width:48px; height:48px; border-radius:50%; background:rgba(var(--success-green, 34,197,94), 0.1); color:rgb(var(--success-green, 34,197,94)); font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">MD</div>
+              <div>
+                <h3 style="margin:0; font-size:18px;">Michael Doe</h3>
+                <span style="font-size:13px; font-weight:600; color:var(--muted);">Child</span>
+              </div>
+            </div>
+            <button class="lx-icon" aria-label="Options" style="color:var(--danger-color, #ef4444);"><i class="bi bi-trash"></i></button>
+          </div>
+          <div style="font-size:14px; color:var(--muted); margin-bottom:20px; display:flex; flex-direction:column; gap:8px;">
+            <span style="display:flex; align-items:center;"><i class="bi bi-gender-male" style="margin-right:10px; font-size:16px;"></i> Male, 8 Years</span>
+            <span style="display:flex; align-items:center;"><i class="bi bi-droplet" style="margin-right:10px; font-size:16px;"></i> O+ Blood Group</span>
+          </div>
+          <div style="display:flex; gap:10px; border-top:1px solid var(--border-color, #e2e8f0); padding-top:15px;">
+            <a href="../../../pages/home1/tests.html" class="lx-btn primary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Book Test</a>
+            <a href="reports.html" class="lx-btn secondary" style="flex:1; justify-content:center; padding:8px; font-size:13px;">Reports</a>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          if (typeof getCurrentUser === 'function') {
+            const user = getCurrentUser();
+            if (user && user.fullName) {
+              document.getElementById('selfName').textContent = user.fullName;
+              if (typeof getInitials === 'function') {
+                document.getElementById('selfInitials').textContent = getInitials(user.fullName);
+              }
+            }
+          }
+        });
+      </script>
+<!-- Add Member Modal -->
+<div id="addMemberModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
+  <div class="lx-card" style="width:100%; max-width:500px; max-height:90vh; overflow-y:auto; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);">
+    <button type="button" class="lx-icon" onclick="document.getElementById('addMemberModal').style.display='none'" style="position:absolute; top:20px; right:20px; background:var(--bg-surface); border:1px solid var(--border-color);"><i class="bi bi-x-lg"></i></button>
+    <h3 style="margin-top:0; margin-bottom:20px; font-size:20px;">Add New Family Member</h3>
+    
+    <form id="addMemberForm" onsubmit="event.preventDefault(); alert('Member added successfully!'); document.getElementById('addMemberModal').style.display='none'; this.reset();">
+      <div style="margin-bottom:15px;">
+        <label style="display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--text-color);">Full Name *</label>
+        <input type="text" class="lx-input" required placeholder="e.g., Jane Doe" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-body); color:var(--text-color);">
+      </div>
+      <div style="margin-bottom:15px;">
+        <label style="display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--text-color);">Relationship *</label>
+        <select class="lx-input" required style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-body); color:var(--text-color);">
+          <option value="">Select relationship</option>
+          <option value="spouse">Spouse</option>
+          <option value="child">Child</option>
+          <option value="parent">Parent</option>
+          <option value="sibling">Sibling</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:15px; margin-bottom:15px;">
+        <div style="flex:1;">
+          <label style="display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--text-color);">Date of Birth *</label>
+          <input type="date" class="lx-input" required style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-body); color:var(--text-color);">
+        </div>
+        <div style="flex:1;">
+          <label style="display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--text-color);">Gender *</label>
+          <select class="lx-input" required style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-body); color:var(--text-color);">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:25px;">
+        <label style="display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--text-color);">Blood Group</label>
+        <select class="lx-input" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-body); color:var(--text-color);">
+          <option value="">Unknown</option>
+          <option value="a+">A+</option>
+          <option value="a-">A-</option>
+          <option value="b+">B+</option>
+          <option value="b-">B-</option>
+          <option value="o+">O+</option>
+          <option value="o-">O-</option>
+          <option value="ab+">AB+</option>
+          <option value="ab-">AB-</option>
+        </select>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:12px;">
+        <button type="button" class="lx-btn secondary" onclick="document.getElementById('addMemberModal').style.display='none'">Cancel</button>
+        <button type="submit" class="lx-btn primary">Save Member</button>
+      </div>
+    </form>
+  </div>
+</div>
+</section></main>
+<script src="../../../assets/js/auth.js"></script>
+<script src="../../../assets/js/theme.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script src="../../../assets/js/navigation.js"></script>
+<script src="../../../assets/js/laborax-template.js"></script></body></html>
