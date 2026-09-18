@@ -175,12 +175,13 @@ details[open] .lx-dropdown {
 .lx-direction {
   min-width: 40px;
   min-height: 40px;
-  border: 1px solid rgb(var(--border-primary));
-  border-radius: 8px;
-  background: rgb(var(--surface));
+  border: none;
+  border-radius: 50%;
+  background: transparent;
   color: rgb(var(--text-primary));
   cursor: pointer;
   font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .lx-icon {
@@ -321,9 +322,12 @@ body.lx-menu-open {
 html.dark .lx-header,
 html.dark .lx-icon,
 html.dark .lx-direction {
-  background: rgb(var(--bg-secondary));
+  background: transparent;
   color: rgb(var(--text-primary));
-  border-color: rgb(var(--border-primary));
+}
+html.dark .lx-icon:hover,
+html.dark .lx-direction:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 html.dark .lx-dropdown {
@@ -2494,4 +2498,21 @@ html.dark .lx-dropdown small {
 }
 html.dark .lx-dropdown a:hover {
   background: rgba(214, 40, 40, 0.15) !important;
+}
+
+.lx-icon:hover, .lx-direction:hover {
+  background: rgba(128, 128, 128, 0.1);
+}
+.lx-login, .lx-book {
+  border-radius: 99px !important;
+  font-weight: 700;
+}
+.lx-login:not([style*="background"]) {
+  border: none !important;
+  background: rgba(var(--primary-red), 0.08) !important;
+  color: rgb(var(--primary-red)) !important;
+}
+.lx-login:not([style*="background"]):hover {
+  background: rgb(var(--primary-red)) !important;
+  color: #fff !important;
 }

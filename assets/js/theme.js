@@ -549,9 +549,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isActive) {
         link.classList.add('active');
-        const parentNav = link.closest('.lx-nav-item');
+        const parentNav = link.closest('.lx-nav-item, details');
         if (parentNav) {
-            const parentLink = parentNav.querySelector('.lx-nav-link');
+            const parentLink = parentNav.querySelector('.lx-nav-link, summary');
             if (parentLink) parentLink.classList.add('active');
         }
     }

@@ -853,7 +853,7 @@ img { max-width: 100%; display: block; }
     height: 36px;
     line-height: 1;
 }
-.lx-links > a.active {
+.lx-links > a.active, .lx-home summary.active {
     background-color: rgb(var(--text-primary)) !important;
     color: rgb(var(--bg-primary)) !important;
     font-weight: 700;
@@ -1012,4 +1012,13 @@ img { max-width: 100%; display: block; }
 @media (max-width: 980px) {
   /* On mobile, sidebar is top navigation. Collapsing it can just hide it entirely, or we can ignore the toggle on mobile. */
   .lx-dashboard.sidebar-collapsed .lx-sidebar { display: none; }
+}
+
+/* Ensure minimum gap between text elements and buttons at the bottom of cards */
+.lx-card > p,
+.lx-card > h3,
+.lx-card > .lx-list,
+.lx-card > .lx-chip-row,
+.lx-card > .lx-price {
+    margin-bottom: 16px;
 }
