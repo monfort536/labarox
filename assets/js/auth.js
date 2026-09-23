@@ -284,8 +284,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Protect Dashboard Pages
   if (location.pathname.includes('/pages/dashboard/') && !location.pathname.includes('admin/')) {
     if (!isAuthenticated()) {
-      window.location.href = getRootPath() + 'pages/auth/login.html';
-      return;
+      // Disabled for template preview: allow direct access to dashboard without login
+      // window.location.href = getRootPath() + 'pages/auth/login.html';
+      // return;
     }
   }
 
