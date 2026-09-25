@@ -151,8 +151,8 @@ function demoGoogleLogin() {
   setSession(session, true);
   showToast("Logged in with Google successfully!", "success");
   setTimeout(() => {
-    window.location.href = getRootPath() + "index.html";
-  }, 1000);
+      window.location.reload();
+    }, 1000);
 }
 
 function demoAppleLogin() {
@@ -168,8 +168,8 @@ function demoAppleLogin() {
   setSession(session, true);
   showToast("Logged in with Apple successfully!", "success");
   setTimeout(() => {
-    window.location.href = getRootPath() + "index.html";
-  }, 1000);
+      window.location.reload();
+    }, 1000);
 }
 
 
@@ -413,8 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
           setSession(result.session, remember);
           showToast("Login successful!", "success");
           setTimeout(() => {
-            window.location.href = getRootPath() + 'index.html';
-          }, 800);
+              window.location.reload();
+            }, 800);
         } else {
           if (result.message.includes("email")) {
             shakeElement(document.getElementById('email'));
